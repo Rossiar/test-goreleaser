@@ -30,11 +30,15 @@ if [ ! -f "CHANGELOG.md" ]; then
 	echo "CHANGELOG.md is missing"
 fi
 
+if [ ! -f ".version" ]; then
+  echo ".version file is missing"
+fi
+
 cd $(git rev-parse --show-toplevel)
 
 cp CHANGELOG.md CHANGELOG.md.bak
 semantic-release \
-    -slug faceit/matcher-go \
+    -slug BradErz/test-goreleaser \
     -noci \
     -token $GITHUB_TOKEN \
     -ghr \
