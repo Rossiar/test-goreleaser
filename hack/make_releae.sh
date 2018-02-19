@@ -26,6 +26,10 @@ if [ -z "$GITHUB_TOKEN" ]; then
     usage
 fi
 
+if [ ! -f "CHANGELOG.md" ]; then
+	echo "CHANGELOG.md is missing"
+fi
+
 cd $(git rev-parse --show-toplevel)
 
 cp CHANGELOG.md CHANGELOG.md.bak
