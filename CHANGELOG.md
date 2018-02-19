@@ -1,3 +1,17 @@
+## 1.0.2 (2018-02-19)
+
+#### feature
+
+* **program:** saying hi to brad (f738c508)
+
+#### Bug Fixes
+
+* **program:** wondering why it doesn't work anymore (7feb4624)
+
+#### release
+
+* **1.0.1:** release changelog (66d4e28f)
+
 ## 1.0.1 (2018-02-19)
 
 #### Bug Fixes
