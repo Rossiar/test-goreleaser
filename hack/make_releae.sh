@@ -1,5 +1,6 @@
 #!/bin/bash
 set -eo pipefail
+cd $(git rev-parse --show-toplevel)
 
 CMD=$0
 
@@ -34,22 +35,15 @@ if [ ! -f ".version" ]; then
   echo ".version file is missing"
 fi
 
-cd $(git rev-parse --show-toplevel)
-
-cp CHANGELOG.md CHANGELOG.md.bak
-semantic-release \
-    -slug Rossiar/test-goreleaser \
-    -noci \
+semantic-version \
     -token ${GITHUB_TOKEN} \
-    -ghr \
+    -slug Rossiar/test-goreleaser \
     -vf \
     -changelog CHANGELOG.md
-cat CHANGELOG.md.bak >> CHANGELOG.md
-rm CHANGELOG.md.bak
 
-echo "Release created, creating commit release..."
-git add CHANGELOG.md .ghr .version
-RELEASE=$(cat .version)
-git commit -m "release($RELEASE): release changelog"
-git push origin
+#echo "Release created, creating commit release..."
+#git add CHANGELOG.md .ghr .version
+#RELEASE=$(cat .version)
+#git commit -m "release($RELEASE): release changelog"
+#git push origin
 
