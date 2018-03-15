@@ -39,7 +39,6 @@ cd $(git rev-parse --show-toplevel)
 cp CHANGELOG.md CHANGELOG.md.bak
 semantic-release \
     -slug Rossiar/test-goreleaser \
-    -dry \
     -noci \
     -token ${GITHUB_TOKEN} \
     -ghr \
@@ -47,14 +46,10 @@ semantic-release \
     -changelog CHANGELOG.md
 cat CHANGELOG.md.bak >> CHANGELOG.md
 rm CHANGELOG.md.bak
-git fetch origin --tags
 
 echo "Release created, creating commit release..."
 git add CHANGELOG.md .ghr .version
 RELEASE=$(cat .version)
-git push origin --tags
 git commit -m "release($RELEASE): release changelog"
-# git tag -fa v$RELEASE -m "release $RELEASE by make_release.bash"
-# git push -f origin v$RELEASE
 git push origin
 
