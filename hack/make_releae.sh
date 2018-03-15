@@ -58,6 +58,6 @@ semantic-release \
 echo "creating commit release..."
 
 git add .version
-git commit -m "release($RELEASE-SNAPSHOT): release changelog"
+git commit -m "release(SNAPSHOT): release changelog"
 git push origin
 

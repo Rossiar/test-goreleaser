@@ -1,14 +1,3 @@
-## 1.0.5 (2018-03-15)
-
-#### Bug Fixes
-
-* **release:** think I got it this time (4f2ba0dc)
-* **release:** cleanup script (dc3e42d5)
-
-#### release
-
-* **1.0.4:** release changelog (020ad2af)
-
 ## 1.0.4 (2018-03-15)
 
 #### Bug Fixes
