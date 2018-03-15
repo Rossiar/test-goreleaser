@@ -1,3 +1,9 @@
+## 1.0.6 (2018-03-15)
+
+#### Bug Fixes
+
+* **release:** final fixes (cd4a2dd1)
+
 ## 1.0.5 (2018-03-15)
 
 #### Bug Fixes
