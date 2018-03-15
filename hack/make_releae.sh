@@ -47,17 +47,11 @@ rm CHANGELOG.md.bak
 
 git add CHANGELOG.md .version
 RELEASE=$(cat .version)
-git commit -m "release($RELEASE): release changelog"
+git commit -m "chore(release): release v$RELEASE"
 git push origin
 
 semantic-release \
     -slug Rossiar/test-goreleaser \
     -noci \
     -token $GITHUB_TOKEN
-
-echo "creating commit release..."
-
-git add .version
-git commit -m "release(SNAPSHOT): release changelog"
-git push origin
 
