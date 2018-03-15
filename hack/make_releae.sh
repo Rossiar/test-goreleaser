@@ -39,6 +39,7 @@ cd $(git rev-parse --show-toplevel)
 cp CHANGELOG.md CHANGELOG.md.bak
 semantic-release \
     -slug BradErz/test-goreleaser \
+    -dry \
     -noci \
     -token $GITHUB_TOKEN \
     -ghr \
@@ -46,7 +47,7 @@ semantic-release \
     -changelog CHANGELOG.md
 cat CHANGELOG.md.bak >> CHANGELOG.md
 rm CHANGELOG.md.bak
-git pull origin --tags
+git fetch origin --tags
 
 echo "Release created, creating commit release..."
 git add CHANGELOG.md .ghr .version
