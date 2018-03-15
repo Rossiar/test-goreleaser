@@ -51,7 +51,7 @@ git commit -m "release($RELEASE): release changelog"
 git push origin
 
 semantic-release \
-    -slug faceit/config-api \
+    -slug Rossiar/test-goreleaser \
     -noci \
     -token $GITHUB_TOKEN
 
