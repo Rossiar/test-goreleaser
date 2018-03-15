@@ -35,15 +35,29 @@ if [ ! -f ".version" ]; then
   echo ".version file is missing"
 fi
 
+git fetch --tags
+cp CHANGELOG.md CHANGELOG.md.bak
 semantic-version \
     -token ${GITHUB_TOKEN} \
     -slug Rossiar/test-goreleaser \
     -vf \
     -changelog CHANGELOG.md
+cat CHANGELOG.md.bak >> CHANGELOG.md
+rm CHANGELOG.md.bak
 
-#echo "Release created, creating commit release..."
-#git add CHANGELOG.md .ghr .version
-#RELEASE=$(cat .version)
-#git commit -m "release($RELEASE): release changelog"
-#git push origin
+git add CHANGELOG.md .version
+RELEASE=$(cat .version)
+git commit -m "release($RELEASE): release changelog"
+git push origin
+
+semantic-release \
+    -slug faceit/config-api \
+    -noci \
+    -token $GITHUB_TOKEN
+
+echo "creating commit release..."
+
+git add .version
+git commit -m "release($RELEASE-SNAPSHOT): release changelog"
+git push origin
 
