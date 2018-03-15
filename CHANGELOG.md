@@ -1,3 +1,13 @@
+## 1.0.4 (2018-03-15)
+
+#### Bug Fixes
+
+* **release:** cleanup changelog (c0ecf181)
+
+#### release
+
+* **1.0.3:** release changelog (f8c15212)
+
 ## 1.0.3 (2018-03-15)
 
 #### Bug Fixes
