@@ -38,10 +38,10 @@ cd $(git rev-parse --show-toplevel)
 
 cp CHANGELOG.md CHANGELOG.md.bak
 semantic-release \
-    -slug BradErz/test-goreleaser \
+    -slug Rossiar/test-goreleaser \
     -dry \
     -noci \
-    -token $GITHUB_TOKEN \
+    -token ${GITHUB_TOKEN} \
     -ghr \
     -vf \
     -changelog CHANGELOG.md
