@@ -35,6 +35,7 @@ if [ ! -f ".version" ]; then
   echo ".version file is missing"
 fi
 
+# Calculate the new version number and changelog, write them to .version and CHANGELOG.md
 git fetch --tags
 cp CHANGELOG.md CHANGELOG.md.bak
 semantic-version \
@@ -45,13 +46,14 @@ semantic-version \
 cat CHANGELOG.md.bak >> CHANGELOG.md
 rm CHANGELOG.md.bak
 
+# Commit the changed files to master as a release commit
 git add CHANGELOG.md .version
 RELEASE=$(cat .version)
 git commit -m "chore(release): release v$RELEASE"
 git push origin
 
+# Create the release from master (not writing .version and CHANGELOG.md
 semantic-release \
     -slug Rossiar/test-goreleaser \
     -noci \
-    -token $GITHUB_TOKEN
-
+    -token ${GITHUB_TOKEN}
